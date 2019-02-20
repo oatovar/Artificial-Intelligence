@@ -31,115 +31,115 @@
 from data_structures import Queue
 
 class State:
-    def __init__(self, transitions, distance):
-        self.reachable = Queue(transitions) # Queue full of neighbors that can be reached
+    def __init__(self, name, distance):
+        self.name = name
+        self.reachable = Queue() # Queue full of neighbors that can be reached
         self.estimate = distance # Estimated cost to nearest goal
 
+    def insert(self, state, distance):
+        self.reachable.insert(state)
+
+'''
+    Define the open and closed lists here.
+'''
+
+OPEN = list()
+CLOSED = list()
+
+def setup():
+    OPEN.append(S)
+
 def breadthFirstSearch():
-    pass
-    
-def depthFirstSearch():
-    pass
+    while (len(OPEN) > 0):
+        currentState = OPEN.pop(0)
 
-def bestFirstSearch():
-    pass
+        if (currentState.name == "G1" or currentState.name == "G2"):
+            CLOSED.append(currentState.name)
+            return CLOSED
+        else:
+            CLOSED.append(currentState.name)
+            i = 0
+            neighbors = currentState.reachable.getList()
+            while (i < len(neighbors)):
+                state = neighbors[i]
+                i += 1
+                if (state in CLOSED or state in OPEN):
+                    continue
+                else:
+                    OPEN.append(state)
+    return "FAILURE"
+            
+# def depthFirstSearch(open):
+#     pass
 
-def AStar():
-    pass
+# def bestFirstSearch(open):
+#     pass
 
-def SMAStar():
-    pass
+# def AStar(open):
+#     pass
+
+# def SMAStar(open):
+#     pass
 
 if __name__ == "__main__":
     '''
         Define all the states here.
     '''
-    S = State(
-        [
-            {"A": 3},
-            {"F": 2},
-            {"B": 7}
-        ],
-        10
-    )
 
-    A = State(
-        [
-            {"C": 1},
-            {"D": 6}
-        ],
-        5
-    )
+    S = State("S", 10)
 
-    F = State(
-        [
-            {"D": 4}
-        ],
-        9
-    )
+    A = State("A", 5)
 
-    B = State(
-        [
-            {"E": 1},
-            {"G2": 9}
-        ],
-        8
-    )
+    F = State("F", 9)
 
-    C = State(
-        [
-            {"S": 2},
-            {"D": 4}
-        ],
-        3
-    )
+    B = State("B", 8)
 
-    D = State(
-        [
-            {"G1": 6},
-            {"B": 3}
-        ],
-        2
-    )
+    C = State("C", 3)
 
-    E = State(
-        [
-            {"G2": 5},
-            {"H": 1}
-        ],
-        4
-    )
+    D = State("D", 2)
 
-    H = State(
-        [
-            {"G2": 1}
-        ],
-        2
-    )
+    E = State("E", 4)
 
-    G1 = State(
-        [
-            {"G1": 0}
-        ],
-        0
-    )
+    H = State("H", 2)
 
-    G2 = State(
-        [
-            {"G2": 0}
-        ],
-        0
-    )
+    G1 = State("G1", 0)
+    G2 = State("G2", 0)
 
-    breadthFirstSearch()
-    depthFirstSearch()
-    bestFirstSearch()
-    AStar()
-    SMAStar()
+    S.insert(A, 3)
+    S.insert(F, 2)
+    S.insert(B, 7)
+
+    A.insert(C, 1)
+    A.insert(D, 6)
+
+    F.insert(D, 4)
+
+    B.insert(E, 1)
+    B.insert(G2, 9)
+
+    C.insert(S, 2)
+    C.insert(D, 4)
+
+    D.insert(G1, 6)
+    D.insert(B, 3)
+
+    E.insert(G2, 5)
+    E.insert(H, 1)
+
+    H.insert(G2, 1)
 
     print("Solving the problem using the following search algorithms:")
     print("Breadth First...")
+    setup()
+    # Perform the search algorithms
+    solution = breadthFirstSearch()
+    print("Solution: " + str(CLOSED))
     print("Depth First")
+    setup()
+    # depthFirstSearch()
+    # bestFirstSearch()
+    # AStar()
+    # SMAStar()
     print("Best First")
     print("A*")
     print("SMA*")
