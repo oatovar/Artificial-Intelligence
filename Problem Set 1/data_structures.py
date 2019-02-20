@@ -1,8 +1,13 @@
 class Queue:
-    def __init__(self, list):
+    def __init__(self):
         self.queue = list()
-        for item in list:
-            self.insert(item)
+        self.counter = 0
+
+    def __len__(self):
+        return len(self.queue)
+    
+    def getList(self):
+        return self.queue
 
     def empty(self):
         return len(self.queue) == 0
