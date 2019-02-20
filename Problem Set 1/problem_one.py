@@ -34,8 +34,20 @@ class State:
     def __init__(self, transitions, distance):
         self.reachable = Queue(transitions) # Queue full of neighbors that can be reached
         self.estimate = distance # Estimated cost to nearest goal
+
+def breadthFirstSearch():
+    pass
     
 def depthFirstSearch():
+    pass
+
+def bestFirstSearch():
+    pass
+
+def AStar():
+    pass
+
+def SMAStar():
     pass
 
 if __name__ == "__main__":
@@ -118,6 +130,12 @@ if __name__ == "__main__":
         ],
         0
     )
+
+    breadthFirstSearch()
+    depthFirstSearch()
+    bestFirstSearch()
+    AStar()
+    SMAStar()
 
     print("Solving the problem using the following search algorithms:")
     print("Breadth First...")
