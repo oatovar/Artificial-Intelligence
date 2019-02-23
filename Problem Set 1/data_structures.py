@@ -5,6 +5,12 @@ class Queue:
 
     def __len__(self):
         return len(self.queue)
+
+    def __str__(self):
+        str = ""
+        for state in self.queue:
+            str += state.name
+        return str
     
     def getList(self):
         return self.queue
