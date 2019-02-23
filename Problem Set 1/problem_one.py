@@ -130,9 +130,7 @@ def bestFirstSearch():
         else:
             CLOSED.append(current_state)
             neighbors = current_state.reachable.getList()
-            print(neighbors)
             sortByHeuristic(neighbors)
-            print(neighbors)
             for neighbor in neighbors:
                 if (neighbor in OPEN or neighbor in CLOSED):
                     continue
