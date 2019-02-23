@@ -54,6 +54,13 @@ def setup():
 
     OPEN.append(S)
 
+def printOpen():
+    result = "["
+    for state in OPEN:
+        result += "'" + str(state.name) + "', "
+    result = result[:-2] + "]"
+    return result
+
 def breadthFirstSearch():
     while (len(OPEN) > 0):
         currentState = OPEN.pop()
@@ -158,7 +165,8 @@ if __name__ == "__main__":
     solution = breadthFirstSearch()
     print("Goal Reached: " + str(solution))
     print("States Expanded: " + str(CLOSED))
-
+    print("OPEN LIST: " + printOpen())
+    print("CLOSED LIST: " + str(CLOSED))
     print("Depth First")
     setup()
     # depthFirstSearch()
