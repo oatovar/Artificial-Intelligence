@@ -141,7 +141,8 @@ def bestFirstSearch():
 
 def AStar(open):
     while (len(OPEN) > 0):
-        # Remove from the front of the list since BFS uses FIFO
+        # Requires the usage of the state.distance plus the cost
+        # to travel to the that node as well. f(n) = g(n) + h(n)
         currentState = OPEN.pop(0)
         if (currentState == G1 or currentState == G2):
             return currentState.name
@@ -149,17 +150,14 @@ def AStar(open):
             CLOSED.append(currentState)
             neighbors = currentState.reachable.getList()
             for neighbor in neighbors:
-                if (neighbor in CLOSED or neighbor in OPEN):
-                    # Skip any children that have already appeared in OPEN or CLOSED
-                    continue
-                else:
-                    # Insert at the beginning. BFS uses FIFO
-                    OPEN.append(neighbor)
+                OPEN.append(neighbor)
     return "FAILURE"
 
 def SMAStar(open):
     while (len(OPEN) > 0):
-        # Remove from the front of the list since BFS uses FIFO
+        # Requires the usage of the state.distance plus the cost
+        # to travel to the that node as well. f(n) = g(n) + h(n)
+        # The OPEN list should also only hold the last three entries.
         currentState = OPEN.pop(0)
         if (currentState == G1 or currentState == G2):
             return currentState.name
@@ -167,12 +165,7 @@ def SMAStar(open):
             CLOSED.append(currentState)
             neighbors = currentState.reachable.getList()
             for neighbor in neighbors:
-                if (neighbor in CLOSED or neighbor in OPEN):
-                    # Skip any children that have already appeared in OPEN or CLOSED
-                    continue
-                else:
-                    # Insert at the beginning. BFS uses FIFO
-                    OPEN.append(neighbor)
+                OPEN.append(neighbor)
     return "FAILURE"
 
 if __name__ == "__main__":
