@@ -34,10 +34,14 @@ class State:
     def __init__(self, name, distance):
         self.name = name
         self.reachable = Queue() # Queue full of neighbors that can be reached
+        self.costs = list()
         self.estimate = distance # Estimated cost to nearest goal
 
+    # TODO implement the usage of the distance cost.
+    # Refactoring will be necessary.
     def insert(self, state, distance):
         self.reachable.insert(state)
+        self.costs.append(distance)
 
 '''
     Define the open and closed lists here.
@@ -84,6 +88,30 @@ def sortByHeuristic(states):
             states[min] = states[i]
             states[i] = temp
 
+def sortforAStar(states, costs):
+    # Take into account the cost to reach state
+    # and the state's estimated cost to nearest goal.
+    i = 0
+    while (i < len(states)-1):
+        min = i
+        j = i + 1
+        print(states[i].name)
+        while (j < len(states)):
+            print(str(states[j].estimate + costs[j]))
+            print(str(states[i].estimate + costs[i]))
+            if (states[j].estimate + costs[j])  < (states[i].estimate + costs[i]):
+                min = j
+            j+=1
+        i+=1
+        if (min != i):
+            tempState = states[min]
+            tempCost = costs[min]
+            states[min] = states[i]
+            states[i] = tempState
+            costs[min] = costs[i]
+            costs[i] = tempCost
+
+
 def breadthFirstSearch():
     while (len(OPEN) > 0):
         # Remove from the front of the list since BFS uses FIFO
@@ -123,6 +151,7 @@ def depthFirstSearch():
 
 def bestFirstSearch():
     # Uses heurstic to make decisions
+    # Similar to DFS uses a stack to make decisions.
     while len(OPEN) > 0:
         current_state = OPEN.pop(0)
         if (current_state == G1 or current_state == G2):
@@ -135,7 +164,7 @@ def bestFirstSearch():
                 if (neighbor in OPEN or neighbor in CLOSED):
                     continue
                 else:
-                    OPEN.append(neighbor)
+                    OPEN.insert(0, neighbor)
     return "FAILURE"
 
 def AStar():
@@ -148,8 +177,10 @@ def AStar():
         else:
             CLOSED.append(currentState)
             neighbors = currentState.reachable.getList()
+            costs = currentState.costs
+            sortforAStar(neighbors, costs)
             for neighbor in neighbors:
-                OPEN.append(neighbor)
+                OPEN.insert(0, neighbor)
     return "FAILURE"
 
 def SMAStar():
@@ -238,6 +269,7 @@ if __name__ == "__main__":
     print("Closed List: " + printClosed())
     print
     setup()
+
     print("Best First")
     solution = bestFirstSearch()
     print("Goal Reached: " + str(solution))
@@ -245,7 +277,14 @@ if __name__ == "__main__":
     print("Open List: " + printOpen())
     print("Closed List: " + printClosed())
     print
-    # SMAStar()
+
     print("A*")
-    AStar()
+    setup()
+    solution = AStar()
+    print("Goal Reached: " + str(solution))
+    print("States Expanded: " + printClosed())
+    print("Open List: " + printOpen())
+    print("Closed List: " + printClosed())
+    print
+
     print("SMA*")
