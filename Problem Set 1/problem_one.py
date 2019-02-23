@@ -52,7 +52,7 @@ def setup():
     while len(CLOSED) > 0:
         CLOSED.pop()
 
-    OPEN.append(S)
+    #OPEN.append(S)
 
 def printOpen():
     result = "["
@@ -61,49 +61,84 @@ def printOpen():
     result = result[:-2] + "]"
     return result
 
+def printClosed():
+    result = "["
+    for state in CLOSED:
+        result += "'" + str(state.name) + "', "
+    result = result[:-2] + "]"
+    return result
+
+def sortByHeuristic(states):
+    # Uses selection sort to sort states by ascending estimate distance
+    i = 0
+    while (i < len(states)-1):
+        min = i
+        j = i + 1
+        while (j < len(states)):
+            if (states[j].estimate < states[i].estimate):
+                min = j
+            j+=1
+        i+=1
+        if (min != i):
+            temp = states[min]
+            states[min] = states[i]
+            states[i] = temp
+
 def breadthFirstSearch():
     while (len(OPEN) > 0):
-        currentState = OPEN.pop()
-        # print("Adding " + currentState.name + " to CLOSED")
-        if (currentState.name == "G1" or currentState.name == "G2"):
+        # Remove from the front of the list since BFS uses FIFO
+        currentState = OPEN.pop(0)
+        if (currentState == G1 or currentState == G2):
             return currentState.name
         else:
-            CLOSED.append(currentState.name)
-            i = 0
+            CLOSED.append(currentState)
             neighbors = currentState.reachable.getList()
-            while (i < len(neighbors)):
-                state = neighbors[i]
-                i += 1
-                if (state in CLOSED or state in OPEN):
+            for neighbor in neighbors:
+                if (neighbor in CLOSED or neighbor in OPEN):
+                    # Skip any children that have already appeared in OPEN or CLOSED
                     continue
                 else:
-                    # OPEN.append(state)
-                    # print("Adding " + state.name + " to OPEN")
-                    OPEN.insert(0, state)
+                    # Insert at the beginning. BFS uses FIFO
+                    OPEN.append(neighbor)
     return "FAILURE"
             
-def depthFirstSearch(open):
-    for state in OPEN:
-        currentState = OPEN.pop(0)
-
-        if (currentState.name == "G1" or currentState.name == "G2"):
-            CLOSED.append(currentState.name)
-            return CLOSED
+def depthFirstSearch():
+    while len(OPEN) > 0:
+        # Remove the earliest entry of the list since DFS uses LIFO
+        currentState = OPEN.pop()
+        if (currentState == G1 or currentState == G2):
+            # CLOSED.append(currentState.name)
+            return currentState.name
         else:
-            CLOSED.append(currentState.name)
-            i = 0
+            CLOSED.append(currentState)
             neighbors = currentState.reachable.getList()
-            while (i < len(neighbors)):
-                state = neighbors[i]
-                i += 1
-                if (state in CLOSED or state in OPEN):
+            for neighbor in neighbors:
+                if (neighbor in CLOSED or neighbor in OPEN):
                     continue
                 else:
-                    OPEN.append(state)
+                    # Append to the end of the list since DFS uses LIFO
+                    OPEN.append(neighbor)
     return "FAILURE"
+    
 
-# def bestFirstSearch(open):
-#     pass
+def bestFirstSearch():
+    # Uses heurstic to make decisions
+    while len(OPEN) > 0:
+        current_state = OPEN.pop(0)
+        if (current_state == G1 or current_state == G2):
+            return current_state.name
+        else:
+            CLOSED.append(current_state)
+            neighbors = current_state.reachable.getList()
+            print(neighbors)
+            sortByHeuristic(neighbors)
+            print(neighbors)
+            for neighbor in neighbors:
+                if (neighbor in OPEN or neighbor in CLOSED):
+                    continue
+                else:
+                    OPEN.append(neighbor)
+    return "FAILURE"
 
 # def AStar(open):
 #     pass
@@ -136,9 +171,12 @@ if __name__ == "__main__":
 
     H = State("H", 2)
 
+    # All nodes are inserted left to right according to the graph.
+
     S.insert(A, 3)
-    S.insert(B, 7)
     S.insert(F, 2)
+    S.insert(B, 7)
+
     A.insert(C, 1)
     A.insert(D, 6)
 
@@ -147,11 +185,11 @@ if __name__ == "__main__":
     B.insert(E, 1)
     B.insert(G2, 9)
 
-    C.insert(D, 4)
     C.insert(S, 2)
+    C.insert(D, 4)
 
-    D.insert(B, 3)
     D.insert(G1, 6)
+    D.insert(B, 3)
 
     E.insert(G2, 5)
     E.insert(H, 1)
@@ -162,15 +200,31 @@ if __name__ == "__main__":
     print("Solving the problem using the following search algorithms:\n")
     print("Breadth First...")
     setup()
+    OPEN.append(S)
     solution = breadthFirstSearch()
     print("Goal Reached: " + str(solution))
-    print("States Expanded: " + str(CLOSED))
-    print("OPEN LIST: " + printOpen())
-    print("CLOSED LIST: " + str(CLOSED))
+    print("States Expanded: " + printClosed())
+    print("Open List: " + printOpen())
+    print("Closed List: " + printClosed())
+    # Print separating newline
+    print
     print("Depth First")
     setup()
-    # depthFirstSearch()
-    # bestFirstSearch()
+    OPEN.append(S)
+    solution = depthFirstSearch()
+    print("Goal Reached: " + str(solution))
+    print("States Expanded: " + printClosed())
+    print("Open List: " + printOpen())
+    print("Closed List: " + printClosed())
+    print
+    setup()
+    OPEN.append(S)
+    print("Best First")
+    solution = bestFirstSearch()
+    print("Goal Reached: " + str(solution))
+    print("States Expanded: " + printClosed())
+    print("Open List: " + printOpen())
+    print("Closed List: " + printClosed())
     # AStar()
     # SMAStar()
     print("Best First")
