@@ -99,14 +99,14 @@ def breadthFirstSearch():
                     # Skip any children that have already appeared in OPEN or CLOSED
                     continue
                 else:
-                    # Insert at the beginning. BFS uses FIFO
+                    # Insert at the end since BFS uses a queue.
                     OPEN.append(neighbor)
     return "FAILURE"
             
 def depthFirstSearch():
     while len(OPEN) > 0:
-        # Remove the earliest entry of the list since DFS uses LIFO
-        currentState = OPEN.pop()
+        # Remove the earliest entry of the list since DFS uses a Stack
+        currentState = OPEN.pop(0)
         if (currentState == G1 or currentState == G2):
             # CLOSED.append(currentState.name)
             return currentState.name
@@ -117,8 +117,8 @@ def depthFirstSearch():
                 if (neighbor in CLOSED or neighbor in OPEN):
                     continue
                 else:
-                    # Append to the end of the list since DFS uses LIFO
-                    OPEN.append(neighbor)
+                    # Append to the end of the list since DFS uses a Stack
+                    OPEN.insert(0, neighbor)
     return "FAILURE"
     
 
