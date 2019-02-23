@@ -66,7 +66,6 @@ def breadthFirstSearch():
             neighbors = currentState.reachable.getList()
             while (i < len(neighbors)):
                 state = neighbors[i]
-                print(state.name)
                 i += 1
                 if (state in CLOSED or state in OPEN):
                     print (state.name + " already visited this state.")
