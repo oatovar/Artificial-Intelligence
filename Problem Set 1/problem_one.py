@@ -51,8 +51,7 @@ def setup():
         OPEN.pop()
     while len(CLOSED) > 0:
         CLOSED.pop()
-
-    #OPEN.append(S)
+    OPEN.append(S)
 
 def printOpen():
     result = "["
@@ -139,7 +138,7 @@ def bestFirstSearch():
                     OPEN.append(neighbor)
     return "FAILURE"
 
-def AStar(open):
+def AStar():
     while (len(OPEN) > 0):
         # Requires the usage of the state.distance plus the cost
         # to travel to the that node as well. f(n) = g(n) + h(n)
@@ -153,7 +152,7 @@ def AStar(open):
                 OPEN.append(neighbor)
     return "FAILURE"
 
-def SMAStar(open):
+def SMAStar():
     while (len(OPEN) > 0):
         # Requires the usage of the state.distance plus the cost
         # to travel to the that node as well. f(n) = g(n) + h(n)
@@ -232,7 +231,6 @@ if __name__ == "__main__":
     print
     print("Depth First")
     setup()
-    OPEN.append(S)
     solution = depthFirstSearch()
     print("Goal Reached: " + str(solution))
     print("States Expanded: " + printClosed())
@@ -240,15 +238,14 @@ if __name__ == "__main__":
     print("Closed List: " + printClosed())
     print
     setup()
-    OPEN.append(S)
     print("Best First")
     solution = bestFirstSearch()
     print("Goal Reached: " + str(solution))
     print("States Expanded: " + printClosed())
     print("Open List: " + printOpen())
     print("Closed List: " + printClosed())
-    # AStar()
+    print
     # SMAStar()
-    print("Best First")
     print("A*")
+    AStar()
     print("SMA*")
