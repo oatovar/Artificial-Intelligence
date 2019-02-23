@@ -47,10 +47,38 @@ OPEN = list()
 CLOSED = list()
 
 def setup():
+    while len(OPEN) > 0:
+        OPEN.pop()
+    while len(CLOSED) > 0:
+        CLOSED.pop()
+
     OPEN.append(S)
 
 def breadthFirstSearch():
     while (len(OPEN) > 0):
+        currentState = OPEN.pop()
+        # print("Adding " + currentState.name + " to CLOSED")
+        if (currentState.name == "G1" or currentState.name == "G2"):
+            return currentState.name
+        else:
+            CLOSED.append(currentState.name)
+            i = 0
+            neighbors = currentState.reachable.getList()
+            while (i < len(neighbors)):
+                state = neighbors[i]
+                print(state.name)
+                i += 1
+                if (state in CLOSED or state in OPEN):
+                    print (state.name + " already visited this state.")
+                    continue
+                else:
+                    # OPEN.append(state)
+                    # print("Adding " + state.name + " to OPEN")
+                    OPEN.insert(0, state)
+    return "FAILURE"
+            
+def depthFirstSearch(open):
+    for state in OPEN:
         currentState = OPEN.pop(0)
 
         if (currentState.name == "G1" or currentState.name == "G2"):
@@ -68,9 +96,6 @@ def breadthFirstSearch():
                 else:
                     OPEN.append(state)
     return "FAILURE"
-            
-# def depthFirstSearch(open):
-#     pass
 
 # def bestFirstSearch(open):
 #     pass
@@ -90,8 +115,6 @@ if __name__ == "__main__":
 
     A = State("A", 5)
 
-    F = State("F", 9)
-
     B = State("B", 8)
 
     C = State("C", 3)
@@ -100,15 +123,17 @@ if __name__ == "__main__":
 
     E = State("E", 4)
 
-    H = State("H", 2)
+    F = State("F", 9)
 
+    # Goal nodes
     G1 = State("G1", 0)
     G2 = State("G2", 0)
 
-    S.insert(A, 3)
-    S.insert(F, 2)
-    S.insert(B, 7)
+    H = State("H", 2)
 
+    S.insert(A, 3)
+    S.insert(B, 7)
+    S.insert(F, 2)
     A.insert(C, 1)
     A.insert(D, 6)
 
@@ -117,23 +142,25 @@ if __name__ == "__main__":
     B.insert(E, 1)
     B.insert(G2, 9)
 
-    C.insert(S, 2)
     C.insert(D, 4)
+    C.insert(S, 2)
 
-    D.insert(G1, 6)
     D.insert(B, 3)
+    D.insert(G1, 6)
 
     E.insert(G2, 5)
     E.insert(H, 1)
 
     H.insert(G2, 1)
 
-    print("Solving the problem using the following search algorithms:")
+    # Perform the search algorithms
+    print("Solving the problem using the following search algorithms:\n")
     print("Breadth First...")
     setup()
-    # Perform the search algorithms
     solution = breadthFirstSearch()
-    print("Solution: " + str(CLOSED))
+    print("Goal Reached: " + str(solution))
+    print("States Expanded: " + str(CLOSED))
+
     print("Depth First")
     setup()
     # depthFirstSearch()
