@@ -68,6 +68,7 @@ def printClosed():
     result = result[:-2] + "]"
     return result
 
+# Needs to be fixed.
 def sortByHeuristic(states):
     # Uses selection sort to sort states by ascending estimate distance
     i = 0
@@ -138,11 +139,41 @@ def bestFirstSearch():
                     OPEN.append(neighbor)
     return "FAILURE"
 
-# def AStar(open):
-#     pass
+def AStar(open):
+    while (len(OPEN) > 0):
+        # Remove from the front of the list since BFS uses FIFO
+        currentState = OPEN.pop(0)
+        if (currentState == G1 or currentState == G2):
+            return currentState.name
+        else:
+            CLOSED.append(currentState)
+            neighbors = currentState.reachable.getList()
+            for neighbor in neighbors:
+                if (neighbor in CLOSED or neighbor in OPEN):
+                    # Skip any children that have already appeared in OPEN or CLOSED
+                    continue
+                else:
+                    # Insert at the beginning. BFS uses FIFO
+                    OPEN.append(neighbor)
+    return "FAILURE"
 
-# def SMAStar(open):
-#     pass
+def SMAStar(open):
+    while (len(OPEN) > 0):
+        # Remove from the front of the list since BFS uses FIFO
+        currentState = OPEN.pop(0)
+        if (currentState == G1 or currentState == G2):
+            return currentState.name
+        else:
+            CLOSED.append(currentState)
+            neighbors = currentState.reachable.getList()
+            for neighbor in neighbors:
+                if (neighbor in CLOSED or neighbor in OPEN):
+                    # Skip any children that have already appeared in OPEN or CLOSED
+                    continue
+                else:
+                    # Insert at the beginning. BFS uses FIFO
+                    OPEN.append(neighbor)
+    return "FAILURE"
 
 if __name__ == "__main__":
     '''
