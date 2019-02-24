@@ -34,68 +34,335 @@ def func(x, y, z):
 
 if __name__ == "__main__":
     print("Running Randomized Hill Climbing")
+    # Seeds used for RNG. Python allows for strings to be used.
     seed_one = "ASDFJASLKFJAA134328FSDV"
     seed_two = "ASDFcadf90ASDFJ0VDAdkld"
     seed_three = "a8034jmCART$CC9392l;anv9_391"
+    # Starting points
     sp_one = [0.5, 0.5, 0.5]
     sp_two = [0.0, 0.5, 1.0]
     sp_three = [0.9, 0.6, 0.3]
-    solution = RHC(sp_one,5,0.02,seed_one)
+
+    # Solutions
+    solution = RHC(sp_one,20,0.02,seed_one)
+    print("SP: " + str(sp_one))
+    print("Run #1")
+    print("P: " + str(20) + " R: " + str(0.02))
     print("# of Solutions Generated " + str(solution[0]))
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
-    solution = RHC(sp_one,5,0.05,seed_one)
+
+    solution = RHC(sp_one,20,0.05,seed_one)
+    print("SP: " + str(sp_one))
+    print("Run #2")
+    print("P: " + str(20) + " R: " + str(0.05))
     print("# of Solutions Generated " + str(solution[0]))
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
+
     solution = RHC(sp_one,100,0.02,seed_one)
+    print("SP: " + str(sp_one))
+    print("Run #1")
+    print("P: " + str(100) + " R: " + str(0.02))
     print("# of Solutions Generated " + str(solution[0]))
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
+
     solution = RHC(sp_one,100,0.05,seed_one)
+    print("SP: " + str(sp_one))
+    print("Run #1")
+    print("P: " + str(100) + " R: " + str(0.05))
     print("# of Solutions Generated " + str(solution[0]))
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
+
     solution = RHC(sp_one,20,0.02,seed_two)
+    print("SP: " + str(sp_one))
+    print("Run #2")
+    print("P: " + str(20) + " R: " + str(0.02))
     print("# of Solutions Generated " + str(solution[0]))
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
+
     solution = RHC(sp_one,20,0.05,seed_two)
+    print("SP: " + str(sp_one))
+    print("Run #2")
+    print("P: " + str(20) + " R: " + str(0.05))
     print("# of Solutions Generated " + str(solution[0]))
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
+
     solution = RHC(sp_one,100,0.02,seed_two)
+    print("SP: " + str(sp_one))
+    print("Run #2")
+    print("P: " + str(100) + " R: " + str(0.02))
     print("# of Solutions Generated " + str(solution[0]))
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
+
     solution = RHC(sp_one,100,0.05,seed_two)
+    print("SP: " + str(sp_one))
+    print("Run #2")
+    print("P: " + str(100) + " R: " + str(0.05))
     print("# of Solutions Generated " + str(solution[0]))
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
+
     solution = RHC(sp_one,20,0.02,seed_three)
+    print("SP: " + str(sp_one))
+    print("Run #3")
+    print("P: " + str(20) + " R: " + str(0.02))
     print("# of Solutions Generated " + str(solution[0]))
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
+
     solution = RHC(sp_one,20,0.05,seed_three)
+    print("SP: " + str(sp_one))
+    print("Run #3")
+    print("P: " + str(20) + " R: " + str(0.05))
     print("# of Solutions Generated " + str(solution[0]))
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
+
     solution = RHC(sp_one,100,0.02,seed_three)
+    print("SP: " + str(sp_one))
+    print("Run #3")
+    print("P: " + str(100) + " R: " + str(0.05))
     print("# of Solutions Generated " + str(solution[0]))
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
+
     solution = RHC(sp_one,100,0.05,seed_three)
+    print("SP: " + str(sp_one))
+    print("Run #3")
+    print("P: " + str(100) + " R: " + str(0.05))
+    print("# of Solutions Generated " + str(solution[0]))
+    print("Solution " + str(solution[1]))
+    print("Solution Value for f(x,y,z) " + str(solution[2]))
+    del points[:]
+    
+    solution = RHC(sp_two,20,0.02,seed_one)
+    print("SP: " + str(sp_two))
+    print("Run #1")
+    print("P: " + str(20) + " R: " + str(0.02))
+    print("# of Solutions Generated " + str(solution[0]))
+    print("Solution " + str(solution[1]))
+    print("Solution Value for f(x,y,z) " + str(solution[2]))
+    del points[:]
+
+    solution = RHC(sp_two,20,0.05,seed_one)
+    print("SP: " + str(sp_two))
+    print("Run #2")
+    print("P: " + str(20) + " R: " + str(0.05))
+    print("# of Solutions Generated " + str(solution[0]))
+    print("Solution " + str(solution[1]))
+    print("Solution Value for f(x,y,z) " + str(solution[2]))
+    del points[:]
+
+    solution = RHC(sp_two,100,0.02,seed_one)
+    print("SP: " + str(sp_two))
+    print("Run #1")
+    print("P: " + str(100) + " R: " + str(0.02))
+    print("# of Solutions Generated " + str(solution[0]))
+    print("Solution " + str(solution[1]))
+    print("Solution Value for f(x,y,z) " + str(solution[2]))
+    del points[:]
+
+    solution = RHC(sp_two,100,0.05,seed_one)
+    print("SP: " + str(sp_two))
+    print("Run #1")
+    print("P: " + str(100) + " R: " + str(0.05))
+    print("# of Solutions Generated " + str(solution[0]))
+    print("Solution " + str(solution[1]))
+    print("Solution Value for f(x,y,z) " + str(solution[2]))
+    del points[:]
+
+    solution = RHC(sp_two,20,0.02,seed_two)
+    print("SP: " + str(sp_two))
+    print("Run #2")
+    print("P: " + str(20) + " R: " + str(0.02))
+    print("# of Solutions Generated " + str(solution[0]))
+    print("Solution " + str(solution[1]))
+    print("Solution Value for f(x,y,z) " + str(solution[2]))
+    del points[:]
+
+    solution = RHC(sp_two,20,0.05,seed_two)
+    print("SP: " + str(sp_two))
+    print("Run #2")
+    print("P: " + str(20) + " R: " + str(0.05))
+    print("# of Solutions Generated " + str(solution[0]))
+    print("Solution " + str(solution[1]))
+    print("Solution Value for f(x,y,z) " + str(solution[2]))
+    del points[:]
+
+    solution = RHC(sp_two,100,0.02,seed_two)
+    print("SP: " + str(sp_two))
+    print("Run #2")
+    print("P: " + str(100) + " R: " + str(0.02))
+    print("# of Solutions Generated " + str(solution[0]))
+    print("Solution " + str(solution[1]))
+    print("Solution Value for f(x,y,z) " + str(solution[2]))
+    del points[:]
+
+    solution = RHC(sp_two,100,0.05,seed_two)
+    print("SP: " + str(sp_two))
+    print("Run #2")
+    print("P: " + str(100) + " R: " + str(0.05))
+    print("# of Solutions Generated " + str(solution[0]))
+    print("Solution " + str(solution[1]))
+    print("Solution Value for f(x,y,z) " + str(solution[2]))
+    del points[:]
+
+    solution = RHC(sp_two,20,0.02,seed_three)
+    print("SP: " + str(sp_two))
+    print("Run #3")
+    print("P: " + str(20) + " R: " + str(0.02))
+    print("# of Solutions Generated " + str(solution[0]))
+    print("Solution " + str(solution[1]))
+    print("Solution Value for f(x,y,z) " + str(solution[2]))
+    del points[:]
+
+    solution = RHC(sp_two,20,0.05,seed_three)
+    print("SP: " + str(sp_two))
+    print("Run #3")
+    print("P: " + str(20) + " R: " + str(0.05))
+    print("# of Solutions Generated " + str(solution[0]))
+    print("Solution " + str(solution[1]))
+    print("Solution Value for f(x,y,z) " + str(solution[2]))
+    del points[:]
+
+    solution = RHC(sp_two,100,0.02,seed_three)
+    print("SP: " + str(sp_two))
+    print("Run #3")
+    print("P: " + str(100) + " R: " + str(0.05))
+    print("# of Solutions Generated " + str(solution[0]))
+    print("Solution " + str(solution[1]))
+    print("Solution Value for f(x,y,z) " + str(solution[2]))
+    del points[:]
+
+    solution = RHC(sp_two,100,0.05,seed_three)
+    print("SP: " + str(sp_two))
+    print("Run #3")
+    print("P: " + str(100) + " R: " + str(0.05))
+    print("# of Solutions Generated " + str(solution[0]))
+    print("Solution " + str(solution[1]))
+    print("Solution Value for f(x,y,z) " + str(solution[2]))
+    del points[:]
+
+    solution = RHC(sp_three,20,0.02,seed_one)
+    print("SP: " + str(sp_three))
+    print("Run #1")
+    print("P: " + str(20) + " R: " + str(0.02))
+    print("# of Solutions Generated " + str(solution[0]))
+    print("Solution " + str(solution[1]))
+    print("Solution Value for f(x,y,z) " + str(solution[2]))
+    del points[:]
+
+    solution = RHC(sp_three,20,0.05,seed_one)
+    print("SP: " + str(sp_three))
+    print("Run #2")
+    print("P: " + str(20) + " R: " + str(0.05))
+    print("# of Solutions Generated " + str(solution[0]))
+    print("Solution " + str(solution[1]))
+    print("Solution Value for f(x,y,z) " + str(solution[2]))
+    del points[:]
+
+    solution = RHC(sp_three,100,0.02,seed_one)
+    print("SP: " + str(sp_three))
+    print("Run #1")
+    print("P: " + str(100) + " R: " + str(0.02))
+    print("# of Solutions Generated " + str(solution[0]))
+    print("Solution " + str(solution[1]))
+    print("Solution Value for f(x,y,z) " + str(solution[2]))
+    del points[:]
+
+    solution = RHC(sp_three,100,0.05,seed_one)
+    print("SP: " + str(sp_three))
+    print("Run #1")
+    print("P: " + str(100) + " R: " + str(0.05))
+    print("# of Solutions Generated " + str(solution[0]))
+    print("Solution " + str(solution[1]))
+    print("Solution Value for f(x,y,z) " + str(solution[2]))
+    del points[:]
+
+    solution = RHC(sp_three,20,0.02,seed_two)
+    print("SP: " + str(sp_three))
+    print("Run #2")
+    print("P: " + str(20) + " R: " + str(0.02))
+    print("# of Solutions Generated " + str(solution[0]))
+    print("Solution " + str(solution[1]))
+    print("Solution Value for f(x,y,z) " + str(solution[2]))
+    del points[:]
+
+    solution = RHC(sp_three,20,0.05,seed_two)
+    print("SP: " + str(sp_three))
+    print("Run #2")
+    print("P: " + str(20) + " R: " + str(0.05))
+    print("# of Solutions Generated " + str(solution[0]))
+    print("Solution " + str(solution[1]))
+    print("Solution Value for f(x,y,z) " + str(solution[2]))
+    del points[:]
+
+    solution = RHC(sp_three,100,0.02,seed_two)
+    print("SP: " + str(sp_three))
+    print("Run #2")
+    print("P: " + str(100) + " R: " + str(0.02))
+    print("# of Solutions Generated " + str(solution[0]))
+    print("Solution " + str(solution[1]))
+    print("Solution Value for f(x,y,z) " + str(solution[2]))
+    del points[:]
+
+    solution = RHC(sp_three,100,0.05,seed_two)
+    print("SP: " + str(sp_three))
+    print("Run #2")
+    print("P: " + str(100) + " R: " + str(0.05))
+    print("# of Solutions Generated " + str(solution[0]))
+    print("Solution " + str(solution[1]))
+    print("Solution Value for f(x,y,z) " + str(solution[2]))
+    del points[:]
+
+    solution = RHC(sp_three,20,0.02,seed_three)
+    print("SP: " + str(sp_three))
+    print("Run #3")
+    print("P: " + str(20) + " R: " + str(0.02))
+    print("# of Solutions Generated " + str(solution[0]))
+    print("Solution " + str(solution[1]))
+    print("Solution Value for f(x,y,z) " + str(solution[2]))
+    del points[:]
+
+    solution = RHC(sp_three,20,0.05,seed_three)
+    print("SP: " + str(sp_three))
+    print("Run #3")
+    print("P: " + str(20) + " R: " + str(0.05))
+    print("# of Solutions Generated " + str(solution[0]))
+    print("Solution " + str(solution[1]))
+    print("Solution Value for f(x,y,z) " + str(solution[2]))
+    del points[:]
+
+    solution = RHC(sp_three,100,0.02,seed_three)
+    print("SP: " + str(sp_three))
+    print("Run #3")
+    print("P: " + str(100) + " R: " + str(0.05))
+    print("# of Solutions Generated " + str(solution[0]))
+    print("Solution " + str(solution[1]))
+    print("Solution Value for f(x,y,z) " + str(solution[2]))
+    del points[:]
+
+    solution = RHC(sp_three,100,0.05,seed_three)
+    print("SP: " + str(sp_three))
+    print("Run #3")
+    print("P: " + str(100) + " R: " + str(0.05))
     print("# of Solutions Generated " + str(solution[0]))
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
