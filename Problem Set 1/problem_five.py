@@ -14,24 +14,36 @@ def RHC(sp, p, r, seed):
     points.append(sp)
     # Save neighbor number that's best solution
     max_solution_index = 0
-    # Generate neighbors
-    for x in range(0, p):
-        vector_v = []
-        # Use uniform distribution to generate random vectors
-        for i in range(1, 4):
-            vector_v.append(round(random.uniform(-float(r), float(r)), 2))
-        # Add randomly generated vector to original starting point
-        # This simulates annealing
-        for i in range(0, 3):
-            vector_v[i] += sp[i]
-            points.append(vector_v)
-    max_solution_value = func(sp[0], sp[1], sp[2]) # Pass in x,y,z coordinates from SP
-    # print(points)
-    for index, point in enumerate(points):
-        if (func(point[0], point[1], point[2]) > max_solution_value):
-            max_solution_index = index
-            max_solution_value = func(point[0], point[1], point[2])
-    return [p, points[max_solution_index], max_solution_value]
+    # Pass in x,y,z coordinates from SP
+    max_solution_value = func(sp[0], sp[1], sp[2])
+    # Save the amount of solutions generated.
+    solutions_count = 0
+    while True:
+        # Generate neighbors
+        for x in range(0, p):
+            # Add to the solutions counter
+            solutions_count += 1
+            vector_v = []
+            # Use uniform distribution to generate random vectors
+            for i in range(1, 4):
+                vector_v.append(round(random.uniform(-float(r), float(r)), 2))
+            # Add randomly generated vector to original starting point
+            # This simulates annealing
+            for i in range(0, 3):
+                vector_v[i] += sp[i]
+                points.append(vector_v)
+        for index, point in enumerate(points):
+            if (func(point[0], point[1], point[2]) > max_solution_value):
+                max_solution_index = index
+                # max_solution_value = func(point[0], point[1], point[2])
+        if max_solution_value >= func(points[max_solution_index][0], points[max_solution_index][1], points[max_solution_index][2]):
+            return [solutions_count, points[max_solution_index], max_solution_value]
+        else:
+            max_vector = points[max_solution_index]
+            max_solution_value = func(max_vector[0], max_vector[1], max_vector[2])
+            points.clear()
+            points.append(max_vector)
+
 
 def func(x, y, z):
     return abs(x-y-0.2)*abs(x*z-0.8)*abs(0.3-z*z*y)+(x*y*(1-z)*abs(z-0.5))
