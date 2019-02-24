@@ -3,6 +3,10 @@ import random
 
 points = []
 
+def prettyPrint(vector):
+    for coordinate in range(len(vector)):
+        vector[coordinate] = round(vector[coordinate], 3)
+
 def RHC(sp, p, r, seed):
     # Initialize seed
     random.seed(seed)
@@ -45,6 +49,7 @@ if __name__ == "__main__":
 
     # Solutions
     solution = RHC(sp_one,20,0.02,seed_one)
+    solution[2] = round(solution[2], 6)
     print("SP: " + str(sp_one))
     print("Run #1")
     print("P: " + str(20) + " R: " + str(0.02))
@@ -54,6 +59,7 @@ if __name__ == "__main__":
     del points[:]
 
     solution = RHC(sp_one,20,0.05,seed_one)
+    solution[2] = round(solution[2], 6)
     print("SP: " + str(sp_one))
     print("Run #2")
     print("P: " + str(20) + " R: " + str(0.05))
@@ -63,6 +69,7 @@ if __name__ == "__main__":
     del points[:]
 
     solution = RHC(sp_one,100,0.02,seed_one)
+    solution[2] = round(solution[2], 6)
     print("SP: " + str(sp_one))
     print("Run #1")
     print("P: " + str(100) + " R: " + str(0.02))
@@ -72,6 +79,7 @@ if __name__ == "__main__":
     del points[:]
 
     solution = RHC(sp_one,100,0.05,seed_one)
+    solution[2] = round(solution[2], 6)
     print("SP: " + str(sp_one))
     print("Run #1")
     print("P: " + str(100) + " R: " + str(0.05))
@@ -81,6 +89,7 @@ if __name__ == "__main__":
     del points[:]
 
     solution = RHC(sp_one,20,0.02,seed_two)
+    solution[2] = round(solution[2], 6)
     print("SP: " + str(sp_one))
     print("Run #2")
     print("P: " + str(20) + " R: " + str(0.02))
@@ -90,6 +99,7 @@ if __name__ == "__main__":
     del points[:]
 
     solution = RHC(sp_one,20,0.05,seed_two)
+    solution[2] = round(solution[2], 6)
     print("SP: " + str(sp_one))
     print("Run #2")
     print("P: " + str(20) + " R: " + str(0.05))
@@ -99,6 +109,7 @@ if __name__ == "__main__":
     del points[:]
 
     solution = RHC(sp_one,100,0.02,seed_two)
+    solution[2] = round(solution[2], 6)
     print("SP: " + str(sp_one))
     print("Run #2")
     print("P: " + str(100) + " R: " + str(0.02))
@@ -108,6 +119,7 @@ if __name__ == "__main__":
     del points[:]
 
     solution = RHC(sp_one,100,0.05,seed_two)
+    solution[2] = round(solution[2], 6)
     print("SP: " + str(sp_one))
     print("Run #2")
     print("P: " + str(100) + " R: " + str(0.05))
@@ -117,6 +129,7 @@ if __name__ == "__main__":
     del points[:]
 
     solution = RHC(sp_one,20,0.02,seed_three)
+    solution[2] = round(solution[2], 6)
     print("SP: " + str(sp_one))
     print("Run #3")
     print("P: " + str(20) + " R: " + str(0.02))
@@ -126,6 +139,7 @@ if __name__ == "__main__":
     del points[:]
 
     solution = RHC(sp_one,20,0.05,seed_three)
+    solution[2] = round(solution[2], 6)
     print("SP: " + str(sp_one))
     print("Run #3")
     print("P: " + str(20) + " R: " + str(0.05))
@@ -135,6 +149,7 @@ if __name__ == "__main__":
     del points[:]
 
     solution = RHC(sp_one,100,0.02,seed_three)
+    solution[2] = round(solution[2], 6)
     print("SP: " + str(sp_one))
     print("Run #3")
     print("P: " + str(100) + " R: " + str(0.05))
@@ -144,6 +159,7 @@ if __name__ == "__main__":
     del points[:]
 
     solution = RHC(sp_one,100,0.05,seed_three)
+    solution[2] = round(solution[2], 6)
     print("SP: " + str(sp_one))
     print("Run #3")
     print("P: " + str(100) + " R: " + str(0.05))
@@ -151,8 +167,9 @@ if __name__ == "__main__":
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
-    
+
     solution = RHC(sp_two,20,0.02,seed_one)
+    solution[2] = round(solution[2], 6)
     print("SP: " + str(sp_two))
     print("Run #1")
     print("P: " + str(20) + " R: " + str(0.02))
@@ -162,6 +179,7 @@ if __name__ == "__main__":
     del points[:]
 
     solution = RHC(sp_two,20,0.05,seed_one)
+    solution[2] = round(solution[2], 6)
     print("SP: " + str(sp_two))
     print("Run #2")
     print("P: " + str(20) + " R: " + str(0.05))
@@ -171,6 +189,7 @@ if __name__ == "__main__":
     del points[:]
 
     solution = RHC(sp_two,100,0.02,seed_one)
+    solution[2] = round(solution[2], 6)
     print("SP: " + str(sp_two))
     print("Run #1")
     print("P: " + str(100) + " R: " + str(0.02))
@@ -180,6 +199,7 @@ if __name__ == "__main__":
     del points[:]
 
     solution = RHC(sp_two,100,0.05,seed_one)
+    solution[2] = round(solution[2], 6)
     print("SP: " + str(sp_two))
     print("Run #1")
     print("P: " + str(100) + " R: " + str(0.05))
@@ -189,6 +209,7 @@ if __name__ == "__main__":
     del points[:]
 
     solution = RHC(sp_two,20,0.02,seed_two)
+    solution[2] = round(solution[2], 6)
     print("SP: " + str(sp_two))
     print("Run #2")
     print("P: " + str(20) + " R: " + str(0.02))
@@ -198,6 +219,7 @@ if __name__ == "__main__":
     del points[:]
 
     solution = RHC(sp_two,20,0.05,seed_two)
+    solution[2] = round(solution[2], 6)
     print("SP: " + str(sp_two))
     print("Run #2")
     print("P: " + str(20) + " R: " + str(0.05))
@@ -207,6 +229,7 @@ if __name__ == "__main__":
     del points[:]
 
     solution = RHC(sp_two,100,0.02,seed_two)
+    solution[2] = round(solution[2], 6)
     print("SP: " + str(sp_two))
     print("Run #2")
     print("P: " + str(100) + " R: " + str(0.02))
@@ -216,6 +239,7 @@ if __name__ == "__main__":
     del points[:]
 
     solution = RHC(sp_two,100,0.05,seed_two)
+    solution[2] = round(solution[2], 6)
     print("SP: " + str(sp_two))
     print("Run #2")
     print("P: " + str(100) + " R: " + str(0.05))
@@ -225,6 +249,7 @@ if __name__ == "__main__":
     del points[:]
 
     solution = RHC(sp_two,20,0.02,seed_three)
+    solution[2] = round(solution[2], 6)
     print("SP: " + str(sp_two))
     print("Run #3")
     print("P: " + str(20) + " R: " + str(0.02))
@@ -234,6 +259,7 @@ if __name__ == "__main__":
     del points[:]
 
     solution = RHC(sp_two,20,0.05,seed_three)
+    solution[2] = round(solution[2], 6)
     print("SP: " + str(sp_two))
     print("Run #3")
     print("P: " + str(20) + " R: " + str(0.05))
@@ -243,6 +269,7 @@ if __name__ == "__main__":
     del points[:]
 
     solution = RHC(sp_two,100,0.02,seed_three)
+    solution[2] = round(solution[2], 6)
     print("SP: " + str(sp_two))
     print("Run #3")
     print("P: " + str(100) + " R: " + str(0.05))
@@ -252,6 +279,7 @@ if __name__ == "__main__":
     del points[:]
 
     solution = RHC(sp_two,100,0.05,seed_three)
+    solution[2] = round(solution[2], 6)
     print("SP: " + str(sp_two))
     print("Run #3")
     print("P: " + str(100) + " R: " + str(0.05))
@@ -261,6 +289,7 @@ if __name__ == "__main__":
     del points[:]
 
     solution = RHC(sp_three,20,0.02,seed_one)
+    solution[2] = round(solution[2], 6)
     print("SP: " + str(sp_three))
     print("Run #1")
     print("P: " + str(20) + " R: " + str(0.02))
@@ -270,6 +299,7 @@ if __name__ == "__main__":
     del points[:]
 
     solution = RHC(sp_three,20,0.05,seed_one)
+    solution[2] = round(solution[2], 6)
     print("SP: " + str(sp_three))
     print("Run #2")
     print("P: " + str(20) + " R: " + str(0.05))
@@ -279,6 +309,7 @@ if __name__ == "__main__":
     del points[:]
 
     solution = RHC(sp_three,100,0.02,seed_one)
+    solution[2] = round(solution[2], 6)
     print("SP: " + str(sp_three))
     print("Run #1")
     print("P: " + str(100) + " R: " + str(0.02))
@@ -288,6 +319,7 @@ if __name__ == "__main__":
     del points[:]
 
     solution = RHC(sp_three,100,0.05,seed_one)
+    solution[2] = round(solution[2], 6)
     print("SP: " + str(sp_three))
     print("Run #1")
     print("P: " + str(100) + " R: " + str(0.05))
@@ -297,6 +329,7 @@ if __name__ == "__main__":
     del points[:]
 
     solution = RHC(sp_three,20,0.02,seed_two)
+    solution[2] = round(solution[2], 6)
     print("SP: " + str(sp_three))
     print("Run #2")
     print("P: " + str(20) + " R: " + str(0.02))
@@ -306,6 +339,7 @@ if __name__ == "__main__":
     del points[:]
 
     solution = RHC(sp_three,20,0.05,seed_two)
+    solution[2] = round(solution[2], 6)
     print("SP: " + str(sp_three))
     print("Run #2")
     print("P: " + str(20) + " R: " + str(0.05))
@@ -315,6 +349,7 @@ if __name__ == "__main__":
     del points[:]
 
     solution = RHC(sp_three,100,0.02,seed_two)
+    solution[2] = round(solution[2], 6)
     print("SP: " + str(sp_three))
     print("Run #2")
     print("P: " + str(100) + " R: " + str(0.02))
@@ -324,6 +359,7 @@ if __name__ == "__main__":
     del points[:]
 
     solution = RHC(sp_three,100,0.05,seed_two)
+    solution[2] = round(solution[2], 6)
     print("SP: " + str(sp_three))
     print("Run #2")
     print("P: " + str(100) + " R: " + str(0.05))
@@ -333,6 +369,7 @@ if __name__ == "__main__":
     del points[:]
 
     solution = RHC(sp_three,20,0.02,seed_three)
+    solution[2] = round(solution[2], 6)
     print("SP: " + str(sp_three))
     print("Run #3")
     print("P: " + str(20) + " R: " + str(0.02))
@@ -342,6 +379,7 @@ if __name__ == "__main__":
     del points[:]
 
     solution = RHC(sp_three,20,0.05,seed_three)
+    solution[2] = round(solution[2], 6)
     print("SP: " + str(sp_three))
     print("Run #3")
     print("P: " + str(20) + " R: " + str(0.05))
@@ -351,6 +389,7 @@ if __name__ == "__main__":
     del points[:]
 
     solution = RHC(sp_three,100,0.02,seed_three)
+    solution[2] = round(solution[2], 6)
     print("SP: " + str(sp_three))
     print("Run #3")
     print("P: " + str(100) + " R: " + str(0.05))
@@ -360,6 +399,7 @@ if __name__ == "__main__":
     del points[:]
 
     solution = RHC(sp_three,100,0.05,seed_three)
+    solution[2] = round(solution[2], 6)
     print("SP: " + str(sp_three))
     print("Run #3")
     print("P: " + str(100) + " R: " + str(0.05))
