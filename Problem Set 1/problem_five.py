@@ -69,6 +69,7 @@ if __name__ == "__main__":
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
+    print("\n")
 
     solution = RHC(sp_one,20,0.05,seed_one)
     solution[2] = round(solution[2], 6)
@@ -79,6 +80,7 @@ if __name__ == "__main__":
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
+    print("\n")
 
     solution = RHC(sp_one,100,0.02,seed_one)
     solution[2] = round(solution[2], 6)
@@ -89,6 +91,7 @@ if __name__ == "__main__":
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
+    print("\n")
 
     solution = RHC(sp_one,100,0.05,seed_one)
     solution[2] = round(solution[2], 6)
@@ -99,6 +102,7 @@ if __name__ == "__main__":
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
+    print("\n")
 
     solution = RHC(sp_one,20,0.02,seed_two)
     solution[2] = round(solution[2], 6)
@@ -109,6 +113,7 @@ if __name__ == "__main__":
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
+    print("\n")
 
     solution = RHC(sp_one,20,0.05,seed_two)
     solution[2] = round(solution[2], 6)
@@ -119,6 +124,7 @@ if __name__ == "__main__":
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
+    print("\n")
 
     solution = RHC(sp_one,100,0.02,seed_two)
     solution[2] = round(solution[2], 6)
@@ -129,6 +135,7 @@ if __name__ == "__main__":
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
+    print("\n")
 
     solution = RHC(sp_one,100,0.05,seed_two)
     solution[2] = round(solution[2], 6)
@@ -139,6 +146,7 @@ if __name__ == "__main__":
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
+    print("\n")
 
     solution = RHC(sp_one,20,0.02,seed_three)
     solution[2] = round(solution[2], 6)
@@ -149,6 +157,7 @@ if __name__ == "__main__":
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
+    print("\n")
 
     solution = RHC(sp_one,20,0.05,seed_three)
     solution[2] = round(solution[2], 6)
@@ -159,16 +168,18 @@ if __name__ == "__main__":
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
+    print("\n")
 
     solution = RHC(sp_one,100,0.02,seed_three)
     solution[2] = round(solution[2], 6)
     print("SP: " + str(sp_one))
     print("Run #3")
-    print("P: " + str(100) + " R: " + str(0.05))
+    print("P: " + str(100) + " R: " + str(0.02))
     print("# of Solutions Generated " + str(solution[0]))
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
+    print("\n")
 
     solution = RHC(sp_one,100,0.05,seed_three)
     solution[2] = round(solution[2], 6)
@@ -179,6 +190,7 @@ if __name__ == "__main__":
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
+    print("\n")
 
     solution = RHC(sp_two,20,0.02,seed_one)
     solution[2] = round(solution[2], 6)
@@ -189,6 +201,7 @@ if __name__ == "__main__":
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
+    print("\n")
 
     solution = RHC(sp_two,20,0.05,seed_one)
     solution[2] = round(solution[2], 6)
@@ -199,6 +212,7 @@ if __name__ == "__main__":
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
+    print("\n")
 
     solution = RHC(sp_two,100,0.02,seed_one)
     solution[2] = round(solution[2], 6)
@@ -209,6 +223,7 @@ if __name__ == "__main__":
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
+    print("\n")
 
     solution = RHC(sp_two,100,0.05,seed_one)
     solution[2] = round(solution[2], 6)
@@ -219,6 +234,7 @@ if __name__ == "__main__":
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
+    print("\n")
 
     solution = RHC(sp_two,20,0.02,seed_two)
     solution[2] = round(solution[2], 6)
@@ -229,6 +245,7 @@ if __name__ == "__main__":
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
+    print("\n")
 
     solution = RHC(sp_two,20,0.05,seed_two)
     solution[2] = round(solution[2], 6)
@@ -239,6 +256,7 @@ if __name__ == "__main__":
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
+    print("\n")
 
     solution = RHC(sp_two,100,0.02,seed_two)
     solution[2] = round(solution[2], 6)
@@ -249,6 +267,7 @@ if __name__ == "__main__":
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
+    print("\n")
 
     solution = RHC(sp_two,100,0.05,seed_two)
     solution[2] = round(solution[2], 6)
@@ -259,6 +278,7 @@ if __name__ == "__main__":
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
+    print("\n")
 
     solution = RHC(sp_two,20,0.02,seed_three)
     solution[2] = round(solution[2], 6)
@@ -269,6 +289,7 @@ if __name__ == "__main__":
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
+    print("\n")
 
     solution = RHC(sp_two,20,0.05,seed_three)
     solution[2] = round(solution[2], 6)
@@ -279,16 +300,18 @@ if __name__ == "__main__":
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
+    print("\n")
 
     solution = RHC(sp_two,100,0.02,seed_three)
     solution[2] = round(solution[2], 6)
     print("SP: " + str(sp_two))
     print("Run #3")
-    print("P: " + str(100) + " R: " + str(0.05))
+    print("P: " + str(100) + " R: " + str(0.02))
     print("# of Solutions Generated " + str(solution[0]))
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
+    print("\n")
 
     solution = RHC(sp_two,100,0.05,seed_three)
     solution[2] = round(solution[2], 6)
@@ -299,6 +322,7 @@ if __name__ == "__main__":
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
+    print("\n")
 
     solution = RHC(sp_three,20,0.02,seed_one)
     solution[2] = round(solution[2], 6)
@@ -309,6 +333,7 @@ if __name__ == "__main__":
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
+    print("\n")
 
     solution = RHC(sp_three,20,0.05,seed_one)
     solution[2] = round(solution[2], 6)
@@ -319,6 +344,7 @@ if __name__ == "__main__":
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
+    print("\n")
 
     solution = RHC(sp_three,100,0.02,seed_one)
     solution[2] = round(solution[2], 6)
@@ -329,6 +355,7 @@ if __name__ == "__main__":
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
+    print("\n")
 
     solution = RHC(sp_three,100,0.05,seed_one)
     solution[2] = round(solution[2], 6)
@@ -339,6 +366,7 @@ if __name__ == "__main__":
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
+    print("\n")
 
     solution = RHC(sp_three,20,0.02,seed_two)
     solution[2] = round(solution[2], 6)
@@ -349,6 +377,7 @@ if __name__ == "__main__":
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
+    print("\n")
 
     solution = RHC(sp_three,20,0.05,seed_two)
     solution[2] = round(solution[2], 6)
@@ -359,6 +388,7 @@ if __name__ == "__main__":
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
+    print("\n")
 
     solution = RHC(sp_three,100,0.02,seed_two)
     solution[2] = round(solution[2], 6)
@@ -369,6 +399,7 @@ if __name__ == "__main__":
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
+    print("\n")
 
     solution = RHC(sp_three,100,0.05,seed_two)
     solution[2] = round(solution[2], 6)
@@ -379,6 +410,7 @@ if __name__ == "__main__":
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
+    print("\n")
 
     solution = RHC(sp_three,20,0.02,seed_three)
     solution[2] = round(solution[2], 6)
@@ -389,6 +421,7 @@ if __name__ == "__main__":
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
+    print("\n")
 
     solution = RHC(sp_three,20,0.05,seed_three)
     solution[2] = round(solution[2], 6)
@@ -399,8 +432,20 @@ if __name__ == "__main__":
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
+    print("\n")
 
     solution = RHC(sp_three,100,0.02,seed_three)
+    solution[2] = round(solution[2], 6)
+    print("SP: " + str(sp_three))
+    print("Run #3")
+    print("P: " + str(100) + " R: " + str(0.02))
+    print("# of Solutions Generated " + str(solution[0]))
+    print("Solution " + str(solution[1]))
+    print("Solution Value for f(x,y,z) " + str(solution[2]))
+    del points[:]
+    print("\n")
+
+    solution = RHC(sp_three,100,0.05,seed_three)
     solution[2] = round(solution[2], 6)
     print("SP: " + str(sp_three))
     print("Run #3")
@@ -410,11 +455,13 @@ if __name__ == "__main__":
     print("Solution Value for f(x,y,z) " + str(solution[2]))
     del points[:]
 
-    solution = RHC(sp_three,100,0.05,seed_three)
+    print("\n")
+    print("37th Run")
+    solution = RHC([0.00, 0.5, 1.0],30,0.07,seed_one)
     solution[2] = round(solution[2], 6)
-    print("SP: " + str(sp_three))
-    print("Run #3")
-    print("P: " + str(100) + " R: " + str(0.05))
+    print("SP: " + str([0.00, 0.5, 1.0]))
+    print("Run #1")
+    print("P: " + str(20) + " R: " + str(0.02))
     print("# of Solutions Generated " + str(solution[0]))
     print("Solution " + str(solution[1]))
     print("Solution Value for f(x,y,z) " + str(solution[2]))
