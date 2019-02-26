@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+
+# Using the great-circle distance for higher accuracy.
+from geopy.distance import great_circle
+
 class City:
     def __init__(self, name, coordinates):
         self.name = name
@@ -16,6 +20,9 @@ class City:
 
     def getDistance(self, city):
         return self.vertices[city]
+    
+    def getCoordinates(self):
+        return self.coordinates
 
 def printChoices(graph):
     for index, city in enumerate(graph):
