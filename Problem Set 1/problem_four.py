@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 # Using the great-circle distance for higher accuracy.
-from geopy.distance import great_circle
+from geopy.distance import geodesic
 
 class City:
     def __init__(self, name, coordinates):
@@ -249,20 +249,10 @@ salt_lake_city.add(houston, 1200)
 salt_lake_city.add(phoenix, 504)
 salt_lake_city.add(salt_lake_city, 0)
 
-# Define the function to recreate the path
-def recreate_path(cameFrom, city):
-    solution = list()
-    # print(cameFrom)
-    # print(cameFrom[city])
-    # while city in cameFrom.keys():
-    #     city = cameFrom[city]
-    #     solution.append(city)
-    return solution
-
 # Finally define the search algorithm(s)
 def a_star(start, goal):
     OPEN = dict()
-    OPEN[start] = (start.getDistance(start) + great_circle(start.coordinates, goal.coordinates).miles)
+    OPEN[start] = (start.getDistance(start) + geodesic(start.coordinates, goal.coordinates).miles)
     CLOSED = dict()
 
     while len(OPEN) > 0:
@@ -273,23 +263,35 @@ def a_star(start, goal):
             if OPEN[x] < min:
                 city = x
                 min = OPEN[x]
-        print("Currently Expanding", city)
         CLOSED[city] = OPEN[city]
         if city == goal:
             print("Goal found!")
-            # for x in OPEN:
-            #     print(x, OPEN[x])
+            solution = list()
+            solution.insert(0, goal)
+            CLOSED.pop(goal)
+            while start not in CLOSED:
+                keys = list(CLOSED.keys())
+                min = keys[0]
+                for x in CLOSED:
+                    if (CLOSED[x] < CLOSED[min] and solution[0] in CLOSED[x].vertices):
+                        min = x
+                solution.insert(0, min)
+                CLOSED.pop(min)
+                
             for x in CLOSED:
                 print(x, CLOSED[x])
-            return CLOSED
+            for city in solution:
+                print(city)
+            return solution
         else:
+            print("City:", city)
             for destination in city.vertices:
+                print("-", destination)
                 if destination not in OPEN or destination not in CLOSED:
-                    OPEN[destination] = (city.getDistance(destination) + great_circle(destination.coordinates, goal.coordinates).miles)
+                    OPEN[destination] = (city.getDistance(destination) + geodesic(destination.coordinates, goal.coordinates).miles)
         OPEN.pop(city)
+        print("\n")
     return "FAILURE"
-
-# Might implement DFS and BFS in future.
 
 if __name__ == "__main__":
     print("Problem 4 Solution")
