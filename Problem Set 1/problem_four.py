@@ -182,7 +182,33 @@ salt_lake_city.add(houston, 1200)
 salt_lake_city.add(phoenix, 504)
 salt_lake_city.add(salt_lake_city, 0)
 
+# Finally define the search algorithm(s)
+def a_star(start, goal):
+    OPEN = list()
+    CLOSED = list()
+    FROM = dict()
+    OPEN.append(start)
+    
+    while len(OPEN) > 0:
+        min = 0 # Used to hold the index for the city that holds the lowest f = g + h
+        for index, city in enumerate(OPEN):
+            if goal in city.vertices.keys:
+                if city.getDistance(goal) < OPEN[min]:
+                    min = index
+        city = OPEN.pop(min)
+        if city == goal:
+            solution = list()
+            return "Solution_Placeholder"
+        else:
+            CLOSED.append(city)
+            for destination in city.vertices:
+                OPEN.append(destination)
+    return "FAILURE"
+
+# Might implement DFS and BFS in future.
+
 if __name__ == "__main__":
+    print(houston.vertices.keys)
     print("Problem 4 Solution")
     # Take user's input for the starting city.
     while (True):
@@ -206,3 +232,4 @@ if __name__ == "__main__":
             print("Invalid Option. Please try again.")
     # Reiterate the choices
     print("Calculating the distance from", graph[start_destination], "to", graph[ending_destination], "by using the A* algorithm.")
+    a_star(graph[start_destination], graph[ending_destination])
