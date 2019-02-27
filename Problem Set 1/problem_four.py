@@ -258,10 +258,9 @@ salt_lake_city.add(salt_lake_city, 0)
 # Define the function to recreate the path
 def recreate_path(cameFrom, city):
     solution = list()
-    currentCity = city
-    while currentCity in cameFrom.keys:
-        currentCity = cameFrom[currentCity]
-        solution.append(currentCity)
+    while city in cameFrom.keys():
+        city = cameFrom[city]
+        solution.append(city)
     return solution
 
 # Finally define the search algorithm(s)
@@ -297,12 +296,12 @@ def a_star(start, goal):
                 # If the f(n) value for the current city is lower than the current min
                 # change the 'min' index.
                 if ((city.getDistance(goal) + great_circle(city.coordinates, goal.coordinates).miles)
-                < (OPEN[min].getDistance(goal) + great_circle(OPEN[min].coordinates, goal.coordinates.miles))):
+                < (OPEN[min].getDistance(goal) + great_circle(OPEN[min].coordinates, goal.coordinates).miles)):
                     min = index
         city = OPEN.pop(min) # Use the city we found to have the min value
         CLOSED.append(city)
         if city == goal:
-            return recreate_path(cameFrom, city)
+            return recreate_path(cameFrom, city.name)
         else:
             for destination in city.vertices:
                 if destination in CLOSED:
@@ -313,7 +312,7 @@ def a_star(start, goal):
                 else:
                     if tentative_gScore >= gScores[destination]:
                         continue
-                cameFrom[destination] = city
+                cameFrom[destination.name] = city
                 gScores[destination] = tentative_gScore
                 fScores[destination] = gScores[destination] + great_circle(destination.coordinates, goal.coordinates).miles        
     return "FAILURE"
@@ -322,7 +321,6 @@ def a_star(start, goal):
 
 if __name__ == "__main__":
     print("Problem 4 Solution")
-    print(houston.vertices[houston])
     # Take user's input for the starting city.
     while (True):
         printChoices(graph)
