@@ -14,18 +14,13 @@ classifier_tanh = MLPClassifier(activation='tanh', solver='lbfgs')
 classifier_relu = MLPClassifier(activation='relu')
 classifier_soft_plus = MLPClassifier(activation='identity')
 
-classifier_sigmoid.fit(x,y)
-classifier_tanh.fit(x,y)
-classifier_relu.fit(x,y)
-classifier_soft_plus.fit(x,y)
-
 # 10-Fold Cross Validation occurs here for every algo.
 score_sigmoid = cross_val_score(classifier_sigmoid, x, y, cv=10)
 score_tanh = cross_val_score(classifier_tanh, x, y, cv=10)
 score_relu = cross_val_score(classifier_relu, x, y, cv=10)
 score_soft_plus = cross_val_score(classifier_soft_plus, x, y, cv=10)
 
-print("Validation for Sigmoid Activation Accuracy: %0.2f (+/- %0.2f)" % (score_sigmoid.mean(), score_sigmoid.std() * 2))
-print("Validation for Tanh Activation Accuracy: %0.2f (+/- %0.2f)" % (score_tanh.mean(), score_tanh.std() * 2))
-print("Validation for Relu Accuracy: %0.2f (+/- %0.2f)" % (score_relu.mean(), score_relu.std() * 2))
-print("Validation for Softplus Accuracy: %0.2f (+/- %0.2f)" % (score_soft_plus.mean(), score_soft_plus.std() * 2))
+print("Sigmoid Activation Accuracy: %0.2f (+/- %0.2f)" % (score_sigmoid.mean(), score_sigmoid.std() * 2))
+print("Tanh Activation Accuracy: %0.2f (+/- %0.2f)" % (score_tanh.mean(), score_tanh.std() * 2))
+print("Relu Accuracy: %0.2f (+/- %0.2f)" % (score_relu.mean(), score_relu.std() * 2))
+print("Softplus Accuracy: %0.2f (+/- %0.2f)" % (score_soft_plus.mean(), score_soft_plus.std() * 2))
